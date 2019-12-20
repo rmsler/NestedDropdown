@@ -19,15 +19,18 @@ Object.assign(MenuItem.prototype, {
       }
       for(let i= 0; i<component.length ; i++ ){
             console.log(i);
-            this.nodeDecider(this.lastLabel, component[i]);
+            this.nodeDecider(this.lastLabel, component[i], i);
       }
     },
 
-    nodeDecider: function(node, object, parentConfig){
+    nodeDecider: function(node, object, level){
         console.log(object.label+ "  -label-  ");
         console.log(node + "  -label-node-  ");
         let label = this.render(node, object.label);
-        this.lastLabel = label;
+        if((this.menulevel !== 0 && level!==0) || (this.menulevel === 0 && level!==0) || (this.menulevel !== 0 && level===0)){
+            console.log("MenuLevel"+ this.menulevel+"  level"+level)
+            this.lastLabel = label;
+        }
         if(object.submenu !== undefined){
             this.init(this.lastLabel, "submenu", object.submenu);
         }
@@ -37,6 +40,7 @@ Object.assign(MenuItem.prototype, {
         let domElement;
         let depth = (label.toString().replace(/ /g,'').replace(/\./g,"_").toLowerCase().match(new RegExp("_", "g"))|| []).length;
         if(depth !== this.menulevel){
+            this.menulevel = depth;
             domElement = document.createElement("ul");
             domElement.classList.add("level_"+depth+"_menu");
             
@@ -48,7 +52,6 @@ Object.assign(MenuItem.prototype, {
             name.appendChild(textchild);
             li.appendChild(name);
             domElement.appendChild(li);
-            this.menulevel = depth;
         }
         else{
             domElement = document.createElement("li");
