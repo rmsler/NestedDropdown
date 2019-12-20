@@ -1,3 +1,16 @@
 {
-    
+    "config" : [
+        {"label": "Item 1"},
+        {"label": "Item 2",
+            "submenu":[
+                {"label": "Item 2.1"},
+                {"label": "Item 2.2",
+                    "submenu":[
+                        {"label": "Item 2.2.1"},
+                        {"label": "Item 2.2.2"}
+                        ]
+                }
+            ]
+        }
+    ]
 }
