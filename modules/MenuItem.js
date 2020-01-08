@@ -12,15 +12,12 @@ Object.assign(MenuItem.prototype, {
       if(component === null){
           component = componentsArray[parentConfig];
       }
-      console.log(component + "component")
-      console.log(component.length);
       this.goThroughArray(node, component)
     },
     goThroughArray: function(node,component){
         for(let i= 0; i<component.length ; i++ ){
             this.nodeDecider(node, component[i]);
         }
-
     },
     nodeDecider: function(node, object){
         let element = this.render(node, object.label);
@@ -30,6 +27,7 @@ Object.assign(MenuItem.prototype, {
         }
     },
     createParentNode: function(wrapper, label){
+        wrapper.classList.add("arrow");
         let domElement = document.createElement("ul");
         let depth = (label.toString().replace(/ /g,'').replace(/\./g,"_").toLowerCase().match(new RegExp("_", "g"))|| []).length;
         domElement.classList.add("level_"+(depth+1)+"_menu");

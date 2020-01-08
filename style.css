@@ -75,3 +75,32 @@
     line-height: 30px;
 }
 .top-level-menu a:hover { color: #000000; }
+
+/* i{
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  } */
+
+.arrow a{
+    padding-right: 6px;
+}
+.arrow > a::after{
+    position: relative;
+    /* top: 3pt; Uncomment this to lower the icons as requested in comments*/
+    content: "";
+    display: inline-block;
+    /* By using an em scale, the arrows will size with the font */
+    width: 0.4em;
+    height: 0.4em;
+    border-right: 0.15em solid black;
+    border-top: 0.15em solid black;
+    transform: rotate(45deg);
+    margin-right: 0.5em;
+    padding: 3px;
+}
