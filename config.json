@@ -9,7 +9,21 @@
                         {"label": "Item 2.2.1"},
                         {"label": "Item 2.2.2"}
                         ]
+                },
+                {"label": "Item 2.3"},
+                {"label": "Item 2.4",
+                    "submenu":[
+                        {"label": "Item 2.4.1"},
+                        {"label": "Item 2.4.2"}
+                        ]
                 }
+            ]
+        },
+        {"label": "Item 3"},
+        {"label": "Item 4",
+            "submenu":[
+                {"label": "Item 4.1"},
+                {"label": "Item 4.2"}
             ]
         }
     ]
